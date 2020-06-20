@@ -346,7 +346,7 @@
 			</div>
 
 			<!-- Draft Controls -->
-			<template v-if="drafting">
+			<smooth-reflow v-if="drafting" :options="{transitionEvent: { selector: 'div', property: 'opacity' }}">
 				<transition :name="'slide-fade-'+((boosterNumber % 2)?'left':'right')" mode="out-in">
 					<div v-if="draftingState == DraftState.Watching" key="draft-watching" class="draft-watching">
 						<div class="draft-watching-state">
@@ -423,7 +423,12 @@
 						</span>
 					</div>
 					<div class="winston-piles">
-						<div v-for="(pile, index) in winstonDraftState.piles" class="winston-pile" :class="{'winston-current-pile': index === winstonDraftState.currentPile}">
+						<div
+							v-for="(pile, index) in winstonDraftState.piles"
+							:key="`winston-pile-${index}`"
+							class="winston-pile"
+							:class="{'winston-current-pile': index === winstonDraftState.currentPile}"
+						>
 							<template v-if="userID === winstonDraftState.currentPlayer && index === winstonDraftState.currentPile">
 								<div class="card-column winstom-card-column">
 									<card v-for="card in pile" :key="card.uniqueID" :card="card" :language="language"></card>
@@ -438,7 +443,7 @@
 							</template>
 							<template v-else>
 								<div class="card-column winstom-card-column">
-									<div v-for="card in pile" class="card"><card-placeholder></card-placeholder></div>
+									<div v-for="card in pile" :key="card.uniqueID" class="card"><card-placeholder></card-placeholder></div>
 								</div>
 								<div class="winston-pile-status" v-show="index === winstonDraftState.currentPile">
 									{{userByID[winstonDraftState.currentPlayer].userName}} is looking at this pile...
@@ -447,7 +452,7 @@
 						</div>
 					</div>
 				</div>
-			</template>
+			</smooth-reflow>
 
 			<!-- Brewing controls (Deck & Sideboard) -->
 			<div class="container" v-show="(deck !== undefined && deck.length > 0) || (drafting && draftingState !== DraftState.Watching) || draftingState == DraftState.Brewing">

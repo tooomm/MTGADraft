@@ -6,6 +6,7 @@ import VTooltip from "v-tooltip";
 import VueClazyLoad from "./vue-clazy-load.js";
 import Multiselect from "vue-multiselect";
 import Swal from "sweetalert2";
+import SmoothReflow from "./components/SmoothReflow.vue";
 
 import Constant from "./constants.json";
 import DefaultLoc from "../public/data/MTGACards.en.json";
@@ -68,6 +69,7 @@ var app = new Vue({
 	el: "#main-vue",
 	components: {
 		Modal,
+		SmoothReflow,
 		Toggle,
 		CardPlaceholder,
 		Card,
