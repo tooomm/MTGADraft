@@ -524,7 +524,8 @@ export default {
 
 				if (this.enableNotifications) {
 					new Notification("Now drafting!", {
-						body: `Your draft '${this.sessionID}' is starting!`,
+						icon: `/client/public/favicon.ico`,
+						body: `Your draft '${this.sessionID}' is starting!`
 					});
 				}
 
