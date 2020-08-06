@@ -769,10 +769,13 @@
 									.
 								</li>
 								<li>
-									Owner sets the desired options. (Take a look at
+									Owner sets the desired options. (
 									<a
 										@click="displayedModal = 'sessionOptions'"
-									>all of them</a>
+									>
+										Open advanced settings
+										<i class="fas fa-cog"></i>
+									</a>
 									.)
 								</li>
 								<li>
