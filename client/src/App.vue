@@ -831,6 +831,7 @@
 										class="clickable"
 										@click="logPathToClipboard"
 										v-tooltip="'Copy path to clipboard (macOS)'"
+									//TODO: confirm if link is correct and copying is useful on mac
 									>~/Library/Logs/Wizards\ Of\ The\ Coast/MTGA/Player.log</tt>									
 								</li>
 							</ol>
