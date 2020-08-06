@@ -810,7 +810,7 @@
 								<li>
 									<a onclick="document.querySelector('#file-input').click()">Upload your MTGA logs</a>
 									<br/>
-									<i class="fas fa-windows"></i>
+									<i class="fab fa-windows"></i>
 									<tt
 										class="clickable"
 										@click="logPathToClipboard"
@@ -826,7 +826,7 @@
 									</a>
 									).
 									<br/>
-									<i class="fas fa-apple"></i>
+									<i class="fab fa-apple"></i>
 									<tt
 										class="clickable"
 										@click="logPathToClipboard"
