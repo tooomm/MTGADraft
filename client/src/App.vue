@@ -779,9 +779,12 @@
 									.)
 								</li>
 								<li>
-									Once everyone is ready (use the ready check
+									Make sure all players are ready - use the ready check
 									<i class="fas fa-user-check"></i>
-									to make sure!), session owner launches the desired game mode.
+									button!
+								</li>
+								<li>
+									Once everyone confirmed, the session owner launches the desired game mode.
 								</li>
 							</ol>
 						</div>
