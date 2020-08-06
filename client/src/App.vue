@@ -800,17 +800,21 @@
 							owned by everyone. (Session owner can bypass this feature by enabling "Ignore Collections"):
 							<ol>
 								<li>
-									Enable Detailed logs in game, the toggle can be found in Options > View Account >
-									Detailed Logs (Plugin Support), importing your collection won't work without this
+									Enable Detailed logs in game
+									<br/>
+									The toggle can be found in
+									<em>Options > View Account > Detailed Logs (Plugin Support)</em>
+									, importing your collection won't work without this
 									activated.
 								</li>
 								<li>
 									<a onclick="document.querySelector('#file-input').click()">Upload your MTGA logs</a>
-									located at
+									<br/>
+									<i class="fas fa-windows"></i>
 									<tt
 										class="clickable"
 										@click="logPathToClipboard"
-										v-tooltip="'Copy path to clipboard'"
+										v-tooltip="'Copy path to clipboard (Windows)'"
 									>C:\Users\%username%\AppData\LocalLow\Wizards Of The Coast\MTGA\Player.log</tt>
 									(Note:
 									<a
@@ -821,6 +825,13 @@
 										<i class="fas fa-external-link-alt"></i>
 									</a>
 									).
+									<br/>
+									<i class="fas fa-apple"></i>
+									<tt
+										class="clickable"
+										@click="logPathToClipboard"
+										v-tooltip="'Copy path to clipboard (macOS)'"
+									>~/Library/Logs/Wizards\ Of\ The\ Coast/MTGA/Player.log</tt>									
 								</li>
 							</ol>
 						</div>
