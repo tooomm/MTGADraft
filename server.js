@@ -214,7 +214,7 @@ io.on("connection", function(socket) {
 		} else {
 			Connections[userID].socket.emit("message", {
 				title: `2 Players Only`,
-				text: `Winston Draft can only be played with exactly 2 players.`,
+				text: `Winston Draft can only be played with exactly 2 players. Bots are not supported.`,
 			});
 		}
 	});
