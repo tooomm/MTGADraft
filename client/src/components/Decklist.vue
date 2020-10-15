@@ -64,7 +64,7 @@
 			</tr>
 		</table>
 	</div>
-	<div class="message" v-else>{{ username }} did not submit their decklist.</div>
+	<div class="message" v-else>{{ username }} did not submit their decklist yet.</div>
 </template>
 
 <script>
