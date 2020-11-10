@@ -615,7 +615,7 @@
 						<i class="fas fa-clock"></i>
 						{{ pickTimer }})
 					</span>
-					Waiting for other players to pick...
+					Waiting for Pack #{{ boosterNumber +1 }}, Pick #{{ pickNumber +1 }}... other players are still picking.
 				</div>
 				<div
 					v-if="draftingState == DraftState.Picking"
