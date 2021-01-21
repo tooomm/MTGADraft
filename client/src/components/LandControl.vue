@@ -1,7 +1,7 @@
 <template>
 	<dropdown
 		v-tooltip.top="
-			'Controls basic lands added on export. \'Auto. Land\' will complete your deck to 40 cards with basic lands.'
+			'Controls basic lands added on export. \'Suggest Lands\' will complete your deck to 40 cards with basic lands.'
 		"
 		class="land-control"
 	>
@@ -19,36 +19,43 @@
 			</span>
 		</template>
 		<template v-slot:dropdown>
-			<span class="header">
-				<checkbox :value="autoland" @toggle="$emit('update:autoland', !autoland)" label="Auto. Land" />
-			</span>
-			<div class="land-input" v-for="c in ['W', 'U', 'B', 'R', 'G']" :key="c">
-				<i class="fas fa-minus fa-lg clickable" @click="rem(c)" :class="{ disabled: lands[c] <= 0 }"></i>
-				<img
-					:src="`img/mana/${c}.svg`"
-					class="mana-icon clickable"
-					@click="add(c)"
-					@contextmenu.prevent="rem(c)"
-					:class="{ 'fade-out': lands[c] <= 0 }"
+			<div class="section">
+				<div class="header">Add Basic Lands</div>
+				<div class="land-input" v-for="c in ['W', 'U', 'B', 'R', 'G']" :key="c">
+					<i class="fas fa-minus fa-lg clickable" @click="rem(c)" :class="{ disabled: lands[c] <= 0 }"></i>
+					<img
+						:src="`img/mana/${c}.svg`"
+						class="mana-icon clickable"
+						@click="add(c)"
+						@contextmenu.prevent="rem(c)"
+						:class="{ 'fade-out': lands[c] <= 0 }"
+					/>
+					<input
+						class="small-number-input"
+						type="number"
+						:id="`${c}-mana`"
+						:value="lands[c]"
+						@input="$emit('update:lands', c, $event.target.value === '' ? 0 : parseInt($event.target.value))"
+						min="0"
+						max="999"
+						onclick="this.select();"
+					/>
+					<i class="fas fa-plus fa-lg clickable" @click="add(c)"></i>
+				</div>
+			</div>
+			<div class="section section-left-align">
+				<checkbox
+					:value="autoland"
+					@toggle="$emit('update:autoland', !autoland)"
+					label="Suggest Lands"
 				/>
-				<input
-					class="small-number-input"
-					type="number"
-					:id="`${c}-mana`"
-					:value="lands[c]"
-					@input="$emit('update:lands', c, $event.target.value === '' ? 0 : parseInt($event.target.value))"
-					min="0"
-					max="999"
-					onclick="this.select();"
-				/>
-				<i class="fas fa-plus fa-lg clickable" @click="add(c)"></i>
 			</div>
 			<button
 				v-if="otherbasics"
 				@click="$emit('removebasics')"
 				style="white-space: normal; height: auto; line-height: 1em; padding: 0.5em"
 			>
-				Remove other basics from deck
+				Remove all other basics from pool
 			</button>
 		</template>
 	</dropdown>
