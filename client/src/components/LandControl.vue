@@ -6,7 +6,7 @@
 		class="land-control"
 	>
 		<template v-slot:handle>
-			<span v-if="Object.values(lands).every((n) => n === 0)"> No basic land added. </span>
+			<span v-if="Object.values(lands).every((n) => n === 0)"> No basics added </span>
 			<span
 				v-for="c in ['W', 'U', 'B', 'R', 'G'].filter((c) => lands[c] > 0)"
 				:key="c"
